@@ -16,6 +16,10 @@ public class NotaFiscal {
     public NotaFiscal() {
         System.out.println("inicializando um objeto do tipo NotaFiscal");
     }
+
+    public NotaFiscal(int numeroNota, double valorNota) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public double getValNota() {
         return valNota;
