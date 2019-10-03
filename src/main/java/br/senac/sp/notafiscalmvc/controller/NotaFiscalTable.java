@@ -14,7 +14,6 @@ package br.senac.sp.notafiscalmvc.controller;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import br.senac.sp.notafiscalmvc.DAO.NotaFiscalDAO;
 import br.senac.sp.notafiscalmvc.model.NotaFiscal;
 import javax.swing.table.AbstractTableModel;
@@ -24,7 +23,8 @@ import javax.swing.table.AbstractTableModel;
  * @author lucas
  */
 public class NotaFiscalTable extends AbstractTableModel {
-    private String[] columnNames = {"NumNota","ValNota"};
+
+    private String[] columnNames = {"NumNota", "ValNota"};
 
     public int getColumnCount() {
         return 2;
@@ -32,7 +32,8 @@ public class NotaFiscalTable extends AbstractTableModel {
 
     public int getRowCount() {
         //implementar metodo
-        return 3;
+        return NotaFiscalDAO.conta();
+
     }
 
     public String getColumnName(int col) {
@@ -41,6 +42,13 @@ public class NotaFiscalTable extends AbstractTableModel {
 
     public Object getValueAt(int row, int col) {
         //implementar metodo
+        NotaFiscal nota;
+        nota = NotaFiscalDAO.linha(row);
+        if(col == 0){
+            return nota.getNumNota();
+            return nota.getValNota();
+            
+        }
         return "esse retorno nao faz sentido, corrija quando chegar a hora";
     }
 

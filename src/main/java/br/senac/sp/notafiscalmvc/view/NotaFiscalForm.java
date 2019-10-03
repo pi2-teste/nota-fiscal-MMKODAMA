@@ -1,14 +1,22 @@
 package br.senac.sp.notafiscalmvc.view;
 
 import br.senac.sp.notafiscalmvc.controller.NotaFiscalController;
+import br.senac.sp.notafiscalmvc.controller.NotaFiscalTable;
 
 public class NotaFiscalForm extends javax.swing.JFrame {
-     public NotaFiscalController controller;
-    
+
+    public NotaFiscalController controller;
+
+    public void refreshTable() {
+        tableNotas.invalidate();
+        tableNotas.repaint();
+    }
+
     public NotaFiscalForm() {
+
         initComponents();
         controller = new NotaFiscalController();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -24,7 +32,7 @@ public class NotaFiscalForm extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableNotas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,18 +96,8 @@ public class NotaFiscalForm extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab1", jPanel1);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        tableNotas.setModel(new NotaFiscalTable());
+        jScrollPane1.setViewportView(tableNotas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -128,7 +126,7 @@ public class NotaFiscalForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -142,13 +140,16 @@ public class NotaFiscalForm extends javax.swing.JFrame {
         System.out.println("Salvando");
         System.out.println("na view: " + campoNumNota.getText());
         NotaFiscalController.salvar(Integer.parseInt(campoNumNota.getText()), Double.parseDouble(campoValor.getText()));
-        double  valNota ; int numNota;
+        double valNota;
+        int numNota;
         valNota = Double.parseDouble(campoValor.getText());
         numNota = Integer.parseInt(campoNumNota.getText());
-        System.out.println("na view: "+ numNota);
+        System.out.println("na view: " + numNota);
         System.out.println("na view: " + valNota);
         //System.out.println("agora no controller" + "na view: " + jTextField1.getText() + "\n" + "na view: " + jTextField2.getText());
-
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void campoValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoValorActionPerformed
@@ -201,6 +202,6 @@ public class NotaFiscalForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableNotas;
     // End of variables declaration//GEN-END:variables
 }

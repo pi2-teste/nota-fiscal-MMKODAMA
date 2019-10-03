@@ -19,18 +19,15 @@ public class NotaFiscalController {
     public static boolean salvar(int numeroNota,double valorNota ){
         System.out.println("CONTROLLER");
         
-        NotaFiscal notaFiscal = new NotaFiscal();
-        notaFiscal.setNumNota(numeroNota);
-        notaFiscal.setValNota(valorNota);
-        NotaFiscalDAO.addNota(notaFiscal);
+        NotaFiscal nota = new NotaFiscal();
+        NotaFiscalDAO dao = new NotaFiscalDAO();
+        
+        nota.setNumNota(numeroNota);
+        nota.setValNota(valorNota);
+        dao.addNota(nota);
+        NotaFiscalDAO.addNota(nota);
         return true;
     } 
-
-
-  
-    
-    
-    
-    
+ 
     
 }
