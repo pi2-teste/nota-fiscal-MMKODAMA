@@ -1,24 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.senac.sp.notafiscalmvc.model;
 
 /**
  *
- * @author lucas
+ * @author Matheus Makoto
  */
 public class NotaFiscal {
     double valNota;
+    String descricaoProduto;
     int numNota;
     
     public NotaFiscal() {
-        System.out.println("inicializando um objeto do tipo NotaFiscal");
+        System.out.println("NOTA FISCAL");
     }
-
-    public NotaFiscal(int numeroNota, double valorNota) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public String getDescricaoProduto(){
+        return descricaoProduto;
     }
     
     public double getValNota() {
@@ -26,7 +22,7 @@ public class NotaFiscal {
     }
 
     public void setValNota(double valNota) {
-        System.out.print("O objeto nota recebeu um valor:");
+        System.out.print("Obj nota Recebe : ");
         System.out.println(valNota);
         this.valNota = valNota;
     }
@@ -36,9 +32,15 @@ public class NotaFiscal {
     }
 
     public void setNumNota(int numNota) {
-        System.out.print("O objeto nota recebeu um numero de nota:");
+        System.out.print("Obj nota recebe : ");
         System.out.println(numNota);
         this.numNota = numNota;
+    }
+    
+    public void setDescricaoProduto(String descricaoProduto){
+        System.out.print("Obj nota recebe : ");
+        System.out.println(descricaoProduto);
+        this.descricaoProduto = descricaoProduto;
     }
     
     

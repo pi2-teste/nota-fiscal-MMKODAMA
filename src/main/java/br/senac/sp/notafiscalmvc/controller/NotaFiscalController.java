@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.senac.sp.notafiscalmvc.controller;
 
 import br.senac.sp.notafiscalmvc.DAO.NotaFiscalDAO;
@@ -10,24 +5,22 @@ import br.senac.sp.notafiscalmvc.model.NotaFiscal;
 
 /**
  *
- * @author lucas
+ * @author Matheus Makoto
  */
 public class NotaFiscalController {
     
-    
-    
-    public static boolean salvar(int numeroNota,double valorNota ){
-        System.out.println("CONTROLLER");
+    public static boolean salvar(int numeroNota, String descricaoProduto,double valorNota){
+        System.out.println("Agora estou no controller");
+        // Instanciar
+        NotaFiscal NFiscal = new NotaFiscal();
+        NFiscal.setNumNota(numeroNota);
+        NFiscal.setDescricaoProduto(descricaoProduto);
+        NFiscal.setValNota(valorNota);
         
-        NotaFiscal nota = new NotaFiscal();
         NotaFiscalDAO dao = new NotaFiscalDAO();
+        dao.addNota(NFiscal);
         
-        nota.setNumNota(numeroNota);
-        nota.setValNota(valorNota);
-        dao.addNota(nota);
-        NotaFiscalDAO.addNota(nota);
         return true;
-    } 
- 
-    
+    }
+
 }
